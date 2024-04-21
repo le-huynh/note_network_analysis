@@ -31,7 +31,7 @@ majors %>% is_lodes_form(key = semester,
 majors %>% ggplot(aes(alluvium = student,
                       x = semester,
                       stratum = curriculum)) +
-       # geom_alluvium(color = "black") +
+        geom_alluvium(color = "black") +
         geom_stratum(aes(fill = curriculum),
                      color = "black") +
         scale_y_discrete(breaks = seq(1, 10, by = 1)) +

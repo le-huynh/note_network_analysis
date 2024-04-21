@@ -93,7 +93,7 @@ Alluvial plot
 majors %>% ggplot(aes(alluvium = student,
                       x = semester,
                       stratum = curriculum)) +
-       # geom_alluvium(color = "black") +
+        geom_alluvium(color = "black") +
         geom_stratum(aes(fill = curriculum),
                      color = "black") +
         scale_y_discrete(breaks = seq(1, 10, by = 1)) +
@@ -114,18 +114,18 @@ majors %>% ggplot(aes(alluvium = student,
 ```
 
     ## # A tibble: 10 × 9
-    ##    student CURR1       CURR3       CURR5       CURR7       CURR9 CURR11 CURR13 CURR15
-    ##      <int> <chr>       <chr>       <chr>       <chr>       <chr> <chr>  <chr>  <chr> 
-    ##  1       1 Painting    Painting    Painting    Painting    Pain… Paint… Paint… Paint…
-    ##  2       2 Painting    Painting    Painting    Painting    Pain… Paint… <NA>   <NA>  
-    ##  3       6 Sculpure    Sculpure    Painting    Painting    Pain… Paint… Paint… Paint…
-    ##  4       8 Painting    Painting    Painting    Painting    <NA>  Paint… Paint… Paint…
-    ##  5       9 Sculpure    Art History Art History Painting    Pain… Paint… Paint… Paint…
-    ##  6      10 Painting    Painting    Painting    Painting    Pain… Paint… <NA>   <NA>  
-    ##  7      11 Digital Art Digital Art Digital Art Digital Art Digi… Paint… Paint… Paint…
-    ##  8      12 Sculpure    Sculpure    Sculpure    Sculpure    Pain… Paint… Paint… Paint…
-    ##  9      14 Ceramic     Ceramic     Painting    Painting    Pain… Paint… Paint… Paint…
-    ## 10      15 Photography Photography Photography Painting    Pain… Paint… Paint… <NA>
+    ##    student CURR1       CURR3       CURR5       CURR7       CURR9       CURR11   CURR13   CURR15  
+    ##      <int> <chr>       <chr>       <chr>       <chr>       <chr>       <chr>    <chr>    <chr>   
+    ##  1       1 Painting    Painting    Painting    Painting    Painting    Painting Painting Painting
+    ##  2       2 Painting    Painting    Painting    Painting    Painting    Painting <NA>     <NA>    
+    ##  3       6 Sculpure    Sculpure    Painting    Painting    Painting    Painting Painting Painting
+    ##  4       8 Painting    Painting    Painting    Painting    <NA>        Painting Painting Painting
+    ##  5       9 Sculpure    Art History Art History Painting    Painting    Painting Painting Painting
+    ##  6      10 Painting    Painting    Painting    Painting    Painting    Painting <NA>     <NA>    
+    ##  7      11 Digital Art Digital Art Digital Art Digital Art Digital Art Painting Painting Painting
+    ##  8      12 Sculpure    Sculpure    Sculpure    Sculpure    Painting    Painting Painting Painting
+    ##  9      14 Ceramic     Ceramic     Painting    Painting    Painting    Painting Painting Painting
+    ## 10      15 Photography Photography Photography Painting    Painting    Painting Painting <NA>
 
 Alluvial plot
 
@@ -142,11 +142,11 @@ majors_alluvia %>% ggplot(aes(axis1 = CURR1,
                   discern = TRUE)
 ```
 
-    ## Warning in to_lodes_form(data = data, axes = axis_ind, discern = params$discern):
-    ## Some strata appear at multiple axes.
+    ## Warning in to_lodes_form(data = data, axes = axis_ind, discern = params$discern): Some strata
+    ## appear at multiple axes.
 
-    ## Warning in to_lodes_form(data = data, axes = axis_ind, discern = params$discern):
-    ## Some strata appear at multiple axes.
+    ## Warning in to_lodes_form(data = data, axes = axis_ind, discern = params$discern): Some strata
+    ## appear at multiple axes.
 
 ![](alluvial_form.png)<!-- -->
 
