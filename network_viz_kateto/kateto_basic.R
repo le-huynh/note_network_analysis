@@ -348,7 +348,7 @@ visNetwork::visNetwork(nodes,
                        width = "100%",
                        height = "400px")
 
-# customize color & size
+### customize color & size #----------------
 (vis.nodes <- nodes %>%
                 mutate(shape = "dot",
                        shadow = TRUE,
@@ -366,7 +366,7 @@ visNetwork::visNetwork(nodes,
 
 visNetwork(vis.nodes, vis.links)
 
-# customize arrow edges
+### customize arrow edges #-----------------------
 (vis.links <- vis.links %>%
         mutate(width = 1 + links$weight/8, # line width
                color = "gray", # line color
@@ -377,19 +377,33 @@ visNetwork(vis.nodes, vis.links)
 visnet <- visNetwork(vis.nodes, vis.links)
 visnet
 
-# add legend
-visnet %>%
-        visGroups(groupname = "Newspaper",
-                  color = list(background = "slategrey", border = "black")) %>%
-        visGroups(groupname = "TV",
-                  color = list(background = "tomato", border = "black")) %>%
-        visGroups(groupname = "Online",
-                  color = list(background = "gold", border = "black")) %>%
-        visLegend(main = "Media")
+### add legend #--------------------------
+# visnet %>%
+#         visGroups(groupname = "Newspaper",
+#                   color = list(background = "slategrey", border = "black")) %>%
+#         visGroups(groupname = "TV",
+#                   color = list(background = "tomato", border = "black")) %>%
+#         visGroups(groupname = "Online",
+#                   color = list(background = "gold", border = "black")) %>%
+#         visLegend(main = "Media")
 
-# interactive options
+### interactive options #-----------------------------------
 visOptions(visnet,
            highlightNearest = TRUE,
            selectedBy = "label")
+
+### selected label #-----------------------
+(vis.nodes.label <- vis.nodes %>%
+        mutate(title = media,
+               label = case_when(media %in% c("USA Today",
+                                              "CNN",
+                                              "NY Times") ~ media,
+                                 TRUE ~ NA_character_),
+               font.size = 40,
+               #font.background = "orange",
+               font.strokeWidth = 5))
+
+visnet_label <- visNetwork(vis.nodes.label, vis.links)
+visnet_label
 
 # rmarkdown::render()
